@@ -16,7 +16,7 @@ use utils qw(zypper_call systemctl);
 
 sub run {
     select_console('root-console');
-    zypper_call('in znc');
+    zypper_call('in znc sudo');
 
     script_run("sudo -u znc znc --makeconf | tee /dev/$serialdev; echo zncconf-status-\$? > /dev/$serialdev", 0);
 
@@ -84,4 +84,3 @@ sub run {
 }
 
 1;
-
